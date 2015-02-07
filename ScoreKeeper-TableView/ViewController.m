@@ -12,6 +12,7 @@
 @interface ViewController ()
 
 @property (nonatomic, weak) UITableView *playersListTableView;
+@property (nonatomic, strong) PlayerListTableViewDataSource *dataSource;
 
 @end
 
@@ -22,8 +23,8 @@
     UITableView *playersListTableView = [UITableView new];
     playersListTableView.frame = self.view.bounds;
     [self.view addSubview:playersListTableView];
-    PlayerListTableViewDataSource *playerListTableViewDataSource = [PlayerListTableViewDataSource new];
-    playersListTableView.dataSource = playerListTableViewDataSource;
+    self.dataSource = [PlayerListTableViewDataSource new];
+    playersListTableView.dataSource = self.dataSource;
     
     self.playersListTableView = playersListTableView;
 }

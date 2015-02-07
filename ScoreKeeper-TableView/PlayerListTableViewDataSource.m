@@ -11,7 +11,7 @@
 @implementation PlayerListTableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 40;
+    return 3;
 }
 
 
