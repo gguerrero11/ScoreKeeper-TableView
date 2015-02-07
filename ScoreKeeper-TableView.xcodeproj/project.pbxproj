@@ -14,6 +14,7 @@
 		493F3A941A86B4DF0094DB5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493F3A921A86B4DF0094DB5E /* LaunchScreen.xib */; };
 		493F3AA01A86B4DF0094DB5E /* ScoreKeeper_TableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3A9F1A86B4DF0094DB5E /* ScoreKeeper_TableViewTests.m */; };
 		493F3AB11A86D7660094DB5E /* PlayerListTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3AB01A86D7660094DB5E /* PlayerListTableViewDataSource.m */; };
+		493F3AB41A86DB870094DB5E /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3AB31A86DB870094DB5E /* PlayerTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,8 @@
 		493F3A9F1A86B4DF0094DB5E /* ScoreKeeper_TableViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScoreKeeper_TableViewTests.m; sourceTree = "<group>"; };
 		493F3AAF1A86D7660094DB5E /* PlayerListTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListTableViewDataSource.h; sourceTree = "<group>"; };
 		493F3AB01A86D7660094DB5E /* PlayerListTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListTableViewDataSource.m; sourceTree = "<group>"; };
+		493F3AB21A86DB870094DB5E /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
+		493F3AB31A86DB870094DB5E /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				493F3A8B1A86B4DF0094DB5E /* ViewController.m */,
 				493F3AAF1A86D7660094DB5E /* PlayerListTableViewDataSource.h */,
 				493F3AB01A86D7660094DB5E /* PlayerListTableViewDataSource.m */,
+				493F3AB21A86DB870094DB5E /* PlayerTableViewCell.h */,
+				493F3AB31A86DB870094DB5E /* PlayerTableViewCell.m */,
 				493F3A901A86B4DF0094DB5E /* Images.xcassets */,
 				493F3A921A86B4DF0094DB5E /* LaunchScreen.xib */,
 				493F3A831A86B4DF0094DB5E /* Supporting Files */,
@@ -224,6 +229,7 @@
 				493F3AB11A86D7660094DB5E /* PlayerListTableViewDataSource.m in Sources */,
 				493F3A891A86B4DF0094DB5E /* AppDelegate.m in Sources */,
 				493F3A861A86B4DF0094DB5E /* main.m in Sources */,
+				493F3AB41A86DB870094DB5E /* PlayerTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
