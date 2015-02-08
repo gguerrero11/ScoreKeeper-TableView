@@ -29,14 +29,12 @@
         
         UIStepper *stepper = [[UIStepper alloc]initWithFrame:CGRectMake(200, 20, 0, 0)];
         self.defaultStepperColor = stepper.tintColor;
-        NSLog(@"%@", stepper.tintColor);
         stepper.minimumValue = 0;
         stepper.maximumValue = 1000;
         [stepper addTarget:self action:@selector(scoreStepperPressed:) forControlEvents:UIControlEventTouchDown];
         [stepper addTarget:self action:@selector(scoreStepperChanged:) forControlEvents:UIControlEventValueChanged];
         [stepper addTarget:self action:@selector(scoreStepperUnPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:stepper];
-        
     }
     return self;
 }
@@ -68,7 +66,7 @@
     UIStepper *stepper = sender;
     int value = stepper.value;
     self.scoreLabel.text = [NSString stringWithFormat:@"%d", value];
-    // NSLog(@"%d", stepper.value);
+    NSLog(@"%f", stepper.value);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField {

@@ -21,8 +21,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Score Keeper";
+    self.title = @"Score Keeper"; // title comes first
     float addPlayerViewHeight = 70;
+    
     UITableView *playersListTableView = [UITableView new];
     CGRect playerTableViewFrame = self.view.bounds;
     playerTableViewFrame.size.height -= addPlayerViewHeight;
@@ -32,18 +33,21 @@
     self.dataSource = [PlayerListTableViewDataSource new];
     playersListTableView.dataSource = self.dataSource;
     playersListTableView.delegate = self;
+
+    
+    // UIView container for the Add Players section
     UIView *addPlayerView = [[UIView alloc]initWithFrame:CGRectMake(0, playerTableViewFrame.size.height, self.view.frame.size.width , addPlayerViewHeight)];
     [self.view addSubview:addPlayerView];
-    UILabel *addPlayerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, addPlayerViewHeight)];
+    addPlayerView.backgroundColor = [UIColor lightGrayColor];
+    UILabel *addPlayerLabel = [[UILabel alloc]initWithFrame:CGRectMake(40, 0, 200, addPlayerViewHeight)];
     [addPlayerView addSubview:addPlayerLabel];
     addPlayerLabel.text = @"Add Player?";
     UIStepper *addPlayerStepper = [[UIStepper alloc] initWithFrame:CGRectMake(200, 20, 0, 0)];
     [addPlayerView addSubview:addPlayerStepper];
-    addPlayerStepper.minimumValue = 1;
+    addPlayerStepper.minimumValue = self.dataSource.numOfPlayers;
     addPlayerStepper.maximumValue = 20;
+    NSLog(@"%f", addPlayerStepper.value);
     [addPlayerStepper addTarget:self action:@selector(numberOfPlayers:) forControlEvents:UIControlEventTouchDown];
-    
-
     
     self.playersListTableView = playersListTableView;
 }
@@ -61,7 +65,11 @@
 
 - (void)numberOfPlayers:(id)sender {
     UIStepper *stepper = sender;
-    int value = stepper.value;
+    double value = stepper.value;
+    self.dataSource.numOfPlayers = value;
+    [self.playersListTableView reloadData];
+    
+    NSLog(@"---%f", value);
     
 }
 
