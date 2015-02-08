@@ -11,4 +11,6 @@
 
 @interface PlayerListTableViewDataSource : NSObject <UITableViewDataSource>
 
+@property int numOfPlayers;
+
 @end

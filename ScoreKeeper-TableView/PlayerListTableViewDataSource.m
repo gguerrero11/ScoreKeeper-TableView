@@ -11,9 +11,17 @@
 
 @implementation PlayerListTableViewDataSource 
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        self.numOfPlayers = 1;
+    }
+    return self;
+}
+
 // Required Protocols
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return self.numOfPlayers;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

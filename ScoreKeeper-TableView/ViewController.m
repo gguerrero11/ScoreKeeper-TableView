@@ -18,16 +18,32 @@
 
 @implementation ViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Score Keeper";
+    float addPlayerViewHeight = 70;
     UITableView *playersListTableView = [UITableView new];
-    playersListTableView.frame = self.view.bounds;
+    CGRect playerTableViewFrame = self.view.bounds;
+    playerTableViewFrame.size.height -= addPlayerViewHeight;
+    playersListTableView.frame = playerTableViewFrame;
     playersListTableView.allowsSelection = NO;
     [self.view addSubview:playersListTableView];
     self.dataSource = [PlayerListTableViewDataSource new];
     playersListTableView.dataSource = self.dataSource;
     playersListTableView.delegate = self;
+    UIView *addPlayerView = [[UIView alloc]initWithFrame:CGRectMake(0, playerTableViewFrame.size.height, self.view.frame.size.width , addPlayerViewHeight)];
+    [self.view addSubview:addPlayerView];
+    UILabel *addPlayerLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 200, addPlayerViewHeight)];
+    [addPlayerView addSubview:addPlayerLabel];
+    addPlayerLabel.text = @"Add Player?";
+    UIStepper *addPlayerStepper = [[UIStepper alloc] initWithFrame:CGRectMake(200, 20, 0, 0)];
+    [addPlayerView addSubview:addPlayerStepper];
+    addPlayerStepper.minimumValue = 1;
+    addPlayerStepper.maximumValue = 20;
+    [addPlayerStepper addTarget:self action:@selector(numberOfPlayers:) forControlEvents:UIControlEventTouchDown];
     
+
     
     self.playersListTableView = playersListTableView;
 }
@@ -42,6 +58,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
 }
+
+- (void)numberOfPlayers:(id)sender {
+    UIStepper *stepper = sender;
+    int value = stepper.value;
+    
+}
+
 
 
 @end
