@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface PlayerListTableViewDataSource : NSObject <UITableViewDataSource,UITableViewDelegate>
+@interface PlayerListTableViewDataSource : NSObject <UITableViewDataSource>
 
 @end

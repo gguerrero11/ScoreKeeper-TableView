@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlayerTableViewCell : UITableViewCell
+@interface PlayerTableViewCell : UITableViewCell <UITextFieldDelegate>
+
+@property (weak, nonatomic) UILabel *scoreLabel;
+
+@property (nonatomic, strong) UIColor *defaultStepperColor;
+
 
 @end

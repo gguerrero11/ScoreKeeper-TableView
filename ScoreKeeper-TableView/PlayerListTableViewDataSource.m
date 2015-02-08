@@ -9,25 +9,29 @@
 #import "PlayerListTableViewDataSource.h"
 #import "PlayerTableViewCell.h"
 
-@implementation PlayerListTableViewDataSource
+@implementation PlayerListTableViewDataSource 
 
-
-
+// Required Protocols
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 3;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     if (!cell) {
+
         cell = [[PlayerTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+
     
-    cell.textLabel.text = @"Puet Lem";
     
     return cell;
 }
+
+
+
+
+
 
 
 @end

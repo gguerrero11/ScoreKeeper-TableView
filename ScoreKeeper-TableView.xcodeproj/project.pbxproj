@@ -412,6 +412,7 @@
 				493F3AA51A86B4DF0094DB5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		493F3AA61A86B4DF0094DB5E /* Build configuration list for PBXNativeTarget "ScoreKeeper-TableViewTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +421,7 @@
 				493F3AA81A86B4DF0094DB5E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
