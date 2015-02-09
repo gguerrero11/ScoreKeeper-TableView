@@ -12,7 +12,13 @@
 
 @property (weak, nonatomic) UILabel *scoreLabel;
 
+@property (weak, nonatomic) UITextField *nameTextField;
+
+@property (weak, nonatomic) UIStepper *cellStepper;
+
 @property (nonatomic, strong) UIColor *defaultStepperColor;
+
+@property (nonatomic, strong) NSDictionary *playerDataDictionary;
 
 
 @end

@@ -13,6 +13,7 @@
 
 
 
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -20,6 +21,9 @@
         nameTextField.placeholder = @"Insert Name";
         nameTextField.delegate = self;
         [self.contentView addSubview:nameTextField];
+        self.nameTextField = nameTextField;
+
+
         
         UILabel *scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(155, 10, 50, 50)];
         scoreLabel.text = @"0";
@@ -35,6 +39,7 @@
         [stepper addTarget:self action:@selector(scoreStepperChanged:) forControlEvents:UIControlEventValueChanged];
         [stepper addTarget:self action:@selector(scoreStepperUnPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:stepper];
+        self.cellStepper = stepper;
     }
     return self;
 }
@@ -66,11 +71,15 @@
     UIStepper *stepper = sender;
     int value = stepper.value;
     self.scoreLabel.text = [NSString stringWithFormat:@"%d", value];
+    [self.playerDataDictionary setValue:self.scoreLabel.text forKey:@"score"];
+    NSNumber *stepperValueNumber = [NSNumber numberWithDouble:stepper.value];
+    [self.playerDataDictionary setValue:stepperValueNumber forKey:@"stepperValue"];
     NSLog(@"%f", stepper.value);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField {
     [textField resignFirstResponder]; // What does this actually do?
+    [self.playerDataDictionary setValue:textField.text forKey:@"name"];
     return TRUE;
 }
 

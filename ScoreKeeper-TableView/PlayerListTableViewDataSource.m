@@ -11,26 +11,37 @@
 
 @implementation PlayerListTableViewDataSource 
 
+NSString *cellIdentifier = @"cell";
+
 // Overriding the init method for PlayerListTableView's initializer (subclassed from UITableView)
 - (id)init {
     self = [super init]; // self its own initializer (PlayerListTableView) overriding the superclass's (UITableView) initalizer.
     if (self) {
-        self.numOfPlayers = 1;  // that way, we can access its numOfPlayers property (to be later returned in the tableView's initialzer protocol
+        self.playersDictionaryArray = [NSMutableArray new];
+        NSMutableDictionary *playerDataDictionary = [@{@"name": @"", @"score": @"0", @"stepperValue": @0} mutableCopy];
+        [self.playersDictionaryArray addObject:playerDataDictionary];
+        
     }
     return self;
 }
 
 // Required Protocols
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.numOfPlayers;
+    return self.playersDictionaryArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-
-        cell = [[PlayerTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        
+        cell = [[PlayerTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    NSMutableDictionary *playerDataDictionary = [self.playersDictionaryArray objectAtIndex:indexPath.row];
+    cell.nameTextField.text = [playerDataDictionary objectForKey:@"name"];
+    cell.scoreLabel.text = [playerDataDictionary objectForKey:@"score"];
+    cell.cellStepper.value = [[playerDataDictionary objectForKey:@"stepperValue"] intValue];
+    cell.playerDataDictionary = playerDataDictionary;
+
     return cell;
 }
 
