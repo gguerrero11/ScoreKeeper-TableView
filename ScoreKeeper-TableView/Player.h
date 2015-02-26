@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSString *name;
 @property NSInteger stepperValue;
 
+-(id)init;
 
 @end

@@ -35,6 +35,10 @@
     [self.gamesArray removeObject:game];
 }
 
+- (void)updatePlayerData:(Player *)passedInPlayer {
+    
+}
+
 - (NSInteger)amountOfPlayersInArray {
     
     return self.currentGame.arrayOfPlayers.count;

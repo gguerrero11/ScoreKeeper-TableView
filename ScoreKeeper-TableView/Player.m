@@ -10,5 +10,12 @@
 
 @implementation Player
 
-
+-(id) init {
+    self = [super init];
+    if (self) {
+        self.name = @"";
+        self.stepperValue = 0;
+    }
+    return self;
+}
 @end

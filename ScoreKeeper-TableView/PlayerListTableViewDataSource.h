@@ -11,6 +11,6 @@
 
 @interface PlayerListTableViewDataSource : NSObject <UITableViewDataSource>
 
-@property (nonatomic,strong) NSMutableArray *playersDictionaryArray;
+
 
 @end

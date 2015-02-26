@@ -49,7 +49,6 @@
         UIStepper *addPlayerStepper = [[UIStepper alloc] initWithFrame:CGRectMake(200, 20, 0, 0)];
         [addPlayerView addSubview:addPlayerStepper];
         addPlayerStepper.tintColor = [UIColor blackColor];
-        addPlayerStepper.minimumValue = self.dataSource.playersDictionaryArray.count;
         addPlayerStepper.maximumValue = 20;
         [addPlayerStepper addTarget:self action:@selector(numberOfPlayers:) forControlEvents:UIControlEventValueChanged];
     
@@ -77,17 +76,18 @@
 }
 
 - (void)numberOfPlayers:(id)sender {
-//    UIStepper *stepper = sender;
-//    double value = stepper.value;
-//    NSLog(@"---%f", value);
-//    Player *newPlayer = [Player new];
-//    Player *playerToBeRemoved = [[PlayerController sharedInstance].playersArray lastObject];
-//    if (value > [PlayerController sharedInstance].playersArray.count){
-//        [[PlayerController sharedInstance] addPlayer:newPlayer];
-//    } else if ([PlayerController sharedInstance].playersArray.count > 1) {
-//        [[PlayerController sharedInstance] removePlayer:playerToBeRemoved];
-//    }
-//    [self.playersListTableView reloadData];
+    UIStepper *stepper = sender;
+    double value = stepper.value;
+    Player *newPlayer = [Player new];
+    Player *playerToBeRemoved = [self.currentGame.arrayOfPlayers lastObject];
+    
+    if (value > self.currentGame.arrayOfPlayers.count){
+        [self.currentGame addPlayer:newPlayer];
+    } else if (self.currentGame.arrayOfPlayers.count > 0) {
+        [self.currentGame removePlayer:playerToBeRemoved];
+        NSLog(@"%lu", (unsigned long)self.currentGame.arrayOfPlayers.count);
+    }
+    [self.playersListTableView reloadData];
     
     
 }

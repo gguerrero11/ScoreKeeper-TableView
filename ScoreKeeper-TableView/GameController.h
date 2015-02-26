@@ -22,6 +22,9 @@
 
 - (void)addGame:(Game *)game;
 - (void)removeGame:(Game *)game;
+- (void)updatePlayerData:(Player *)passedInPlayer;
+
+
 - (NSInteger)amountOfPlayersInArray;
 
 @end

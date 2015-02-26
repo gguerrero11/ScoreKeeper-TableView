@@ -17,8 +17,6 @@
 @property (nonatomic) UITableView *gamesListTableView;
 @property (nonatomic, strong) GamesListTableViewDataSource *dataSource;
 
-
-
 @end
 
 @implementation GamesListViewController
