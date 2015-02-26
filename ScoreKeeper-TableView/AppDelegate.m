@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "GamesListViewController.h"
 
 @interface AppDelegate ()
 
@@ -20,8 +20,12 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    ViewController *playersViewController = [ViewController new];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:playersViewController];
+    
+    GamesListViewController *gamesViewController = [GamesListViewController new];
+    
+    //ViewController *playersViewController = [ViewController new];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:gamesViewController];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     

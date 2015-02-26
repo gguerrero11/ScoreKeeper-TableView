@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
 
 @interface PlayerTableViewCell : UITableViewCell <UITextFieldDelegate>
 
@@ -18,7 +19,7 @@
 
 @property (nonatomic, strong) UIColor *defaultStepperColor;
 
-@property (nonatomic, strong) NSDictionary *playerDataDictionary;
+@property (nonatomic, strong) Player *playerAtCell;
 
 
 @end

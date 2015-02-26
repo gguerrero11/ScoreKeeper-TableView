@@ -8,27 +8,37 @@
 
 #import "PlayerListTableViewDataSource.h"
 #import "PlayerTableViewCell.h"
+#import "GameController.h"
+
+
 
 @implementation PlayerListTableViewDataSource 
 
+
+
 NSString *cellIdentifier = @"cell";
 
-// Overriding the init method for PlayerListTableView's initializer (subclassed from UITableView)
-- (id)init {
-    self = [super init]; // self its own initializer (PlayerListTableView) overriding the superclass's (UITableView) initalizer.
-    if (self) {
-        self.playersDictionaryArray = [NSMutableArray new];
-        NSMutableDictionary *playerDataDictionary = [@{@"name": @"", @"score": @"0", @"stepperValue": @0} mutableCopy];
-        [self.playersDictionaryArray addObject:playerDataDictionary];
-        
-    }
-    return self;
-}
+//// Overriding the init method for PlayerListTableView's initializer (subclassed from UITableView)
+//- (id)init {
+//    self = [super init]; // self its own initializer (PlayerListTableView) overriding the superclass's (UITableView) initalizer.
+//    if (self) {
+//        self.playersDictionaryArray = [NSMutableArray new];
+//        NSMutableDictionary *playerDataDictionary = [@{@"name": @"", @"score": @"0", @"stepperValue": @0} mutableCopy];
+//        [self.playersDictionaryArray addObject:playerDataDictionary];
+//        
+//    }
+//    return self;
+//}
+
+
 
 // Required Protocols
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.playersDictionaryArray.count;
+    Game *game = [GameController sharedInstance].currentGame;
+    return (unsigned long)game.arrayOfPlayers.count;
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -36,11 +46,15 @@ NSString *cellIdentifier = @"cell";
         
         cell = [[PlayerTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    NSMutableDictionary *playerDataDictionary = [self.playersDictionaryArray objectAtIndex:indexPath.row];
-    cell.nameTextField.text = [playerDataDictionary objectForKey:@"name"];
-    cell.scoreLabel.text = [playerDataDictionary objectForKey:@"score"];
-    cell.cellStepper.value = [[playerDataDictionary objectForKey:@"stepperValue"] intValue];
-    cell.playerDataDictionary = playerDataDictionary;
+
+    Player *player = [Player new];
+    player = [GameController sharedInstance].gamesArray[indexPath.row];
+
+    cell.nameTextField.text = player.name;
+    
+//    cell.scoreLabel.text = [NSString stringWithFormat:(@"%lu", (long)player.stepperValue)];
+    cell.cellStepper.value = player.stepperValue;
+    cell.playerAtCell = player;
 
     return cell;
 }

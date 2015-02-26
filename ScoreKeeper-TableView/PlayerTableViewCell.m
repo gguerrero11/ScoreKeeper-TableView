@@ -7,8 +7,10 @@
 //
 
 #import "PlayerTableViewCell.h"
+#import "Player.h"
 
-@implementation PlayerTableViewCell 
+
+@implementation PlayerTableViewCell
 
 
 
@@ -22,8 +24,8 @@
         nameTextField.delegate = self;
         [self.contentView addSubview:nameTextField];
         self.nameTextField = nameTextField;
-
-
+        
+        
         
         UILabel *scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(155, 10, 50, 50)];
         scoreLabel.text = @"0";
@@ -57,29 +59,33 @@
 
 - (void)scoreStepperPressed:(id)sender {
     UIStepper *stepper = sender;
-    self.backgroundColor = [UIColor greenColor];
+    //self.backgroundColor = [UIColor greenColor];
     stepper.tintColor = [UIColor greenColor];
 }
 
 - (void)scoreStepperUnPressed:(id)sender {
     UIStepper *stepper = sender;
-    self.backgroundColor = [UIColor clearColor];
+    //self.backgroundColor = [UIColor clearColor];
     stepper.tintColor = self.defaultStepperColor;
 }
 
 - (void)scoreStepperChanged:(id)sender {
     UIStepper *stepper = sender;
-    int value = stepper.value;
-    self.scoreLabel.text = [NSString stringWithFormat:@"%d", value];
-    [self.playerDataDictionary setValue:self.scoreLabel.text forKey:@"score"];
-    NSNumber *stepperValueNumber = [NSNumber numberWithDouble:stepper.value];
-    [self.playerDataDictionary setValue:stepperValueNumber forKey:@"stepperValue"];
+    int stepperValue = stepper.value;
+    
+    self.scoreLabel.text = [NSString stringWithFormat:@"%d", stepperValue];
+    self.playerAtCell.stepperValue = stepperValue;
+    
+    
+    //  [self.playerDataDictionary setValue:self.scoreLabel.text forKey:scoreKey];
+    //  NSNumber *stepperValueNumber = [NSNumber numberWithDouble:stepper.value];
+    self.playerAtCell.stepperValue = stepperValue;
     NSLog(@"%f", stepper.value);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField {
     [textField resignFirstResponder]; // What does this actually do?
-    [self.playerDataDictionary setValue:textField.text forKey:@"name"];
+    
     return TRUE;
 }
 

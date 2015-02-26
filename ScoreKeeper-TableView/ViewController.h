@@ -7,8 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface ViewController : UIViewController
+
+
+
+- (void)updateCurrentGame:(Game *)gamePassedIn;
+
 
 
 @end
