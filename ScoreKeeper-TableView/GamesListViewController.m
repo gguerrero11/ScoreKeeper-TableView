@@ -8,7 +8,7 @@
 
 #import "GamesListViewController.h"
 #import "GamesListTableViewDataSource.h"
-#import "ViewController.h"
+#import "PlayersListViewController.h"
 #import "GameController.h"
 #import "Game.h"
 
@@ -23,11 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
+    
+    
     self.title = @"Games List"; // title comes first
-//    float addPlayerViewHeight = 70;
-
+    //    float addPlayerViewHeight = 70;
+    
     //Creating games list table
     self.gamesListTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
     
@@ -35,10 +35,10 @@
     self.dataSource = [GamesListTableViewDataSource new];
     self.gamesListTableView.delegate = self;
     self.gamesListTableView.dataSource = self.dataSource;
-
+    
     
     [self.view addSubview:self.gamesListTableView];
-//    [self.dataSource registerTableView:self.gamesListTableView];
+    //    [self.dataSource registerTableView:self.gamesListTableView];
     
     // Create "+" add button to create new project.
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add:)];
@@ -55,15 +55,19 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    Game *addedGame = [Game new];
-    addedGame.gameName = textField.text;
-    [[GameController sharedInstance] addGame:addedGame];
+    NSString *nameOfGame;
+    if (![textField.text isEqual: @""]){
+        nameOfGame = textField.text;
+    } else {
+        nameOfGame = @"Unnamed Game";
+    }
+    [[GameController sharedInstance] addGameWithName:nameOfGame];
     [self.gamesListTableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ViewController *playerListViewController = [ViewController new];
+    PlayersListViewController *playerListViewController = [PlayersListViewController new];
     Game *gameSelected = [GameController sharedInstance].gamesArray[indexPath.row];
     [GameController sharedInstance].currentGame = gameSelected;
     [playerListViewController updateCurrentGame:gameSelected];

@@ -26,7 +26,6 @@
         self.nameTextField = nameTextField;
         
         UILabel *scoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(155, 10, 50, 50)];
-        scoreLabel.text = @"0";
         [self.contentView addSubview:scoreLabel];
         self.scoreLabel = scoreLabel;
         
@@ -48,8 +47,8 @@
 
 - (void)scoreStepperChanged:(id)sender {
     UIStepper *stepper = sender;
-    int stepperValue = stepper.value;
-    self.scoreLabel.text = [NSString stringWithFormat:@"%d", stepperValue];
+    NSNumber *stepperValue = [NSNumber numberWithInteger:stepper.value];
+    self.scoreLabel.text = [NSString stringWithFormat:@"%@", stepperValue];
     self.playerAtCell.stepperValue = stepperValue;
 }
 

@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		493AC89F1A918C1E00E9FFA3 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 493AC89E1A918C1E00E9FFA3 /* Player.m */; };
 		493F3A861A86B4DF0094DB5E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3A851A86B4DF0094DB5E /* main.m */; };
 		493F3A891A86B4DF0094DB5E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3A881A86B4DF0094DB5E /* AppDelegate.m */; };
-		493F3A8C1A86B4DF0094DB5E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3A8B1A86B4DF0094DB5E /* ViewController.m */; };
+		493F3A8C1A86B4DF0094DB5E /* PlayersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3A8B1A86B4DF0094DB5E /* PlayersListViewController.m */; };
 		493F3A911A86B4DF0094DB5E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493F3A901A86B4DF0094DB5E /* Images.xcassets */; };
 		493F3A941A86B4DF0094DB5E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493F3A921A86B4DF0094DB5E /* LaunchScreen.xib */; };
 		493F3AA01A86B4DF0094DB5E /* ScoreKeeper_TableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3A9F1A86B4DF0094DB5E /* ScoreKeeper_TableViewTests.m */; };
 		493F3AB11A86D7660094DB5E /* PlayerListTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3AB01A86D7660094DB5E /* PlayerListTableViewDataSource.m */; };
 		493F3AB41A86DB870094DB5E /* PlayerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F3AB31A86DB870094DB5E /* PlayerTableViewCell.m */; };
-		49819DBE1A9E73CA00C6D811 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 49819DBD1A9E73CA00C6D811 /* Game.m */; };
+		494BCF7B1A9FD62400E9667D /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 494BCF7A1A9FD62400E9667D /* Player.m */; };
+		494BCF7E1A9FD62500E9667D /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 494BCF7D1A9FD62500E9667D /* Game.m */; };
 		49819DC11A9E749C00C6D811 /* GameController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49819DC01A9E749C00C6D811 /* GameController.m */; };
 		49819DC51A9E7AAC00C6D811 /* GamesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49819DC41A9E7AAC00C6D811 /* GamesListViewController.m */; };
 		49819DCB1A9E7DDB00C6D811 /* GamesListTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 49819DCA1A9E7DDB00C6D811 /* GamesListTableViewDataSource.m */; };
+		49819DD01A9F06FF00C6D811 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49819DCE1A9F06FF00C6D811 /* Model.xcdatamodeld */; };
+		49819DD71A9F0AFD00C6D811 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49819DD61A9F0AFD00C6D811 /* CoreData.framework */; };
+		49819DE11A9F0E7000C6D811 /* Stack.m in Sources */ = {isa = PBXBuildFile; fileRef = 49819DE01A9F0E7000C6D811 /* Stack.m */; };
+		49819DE31A9F0EB000C6D811 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49819DE21A9F0EB000C6D811 /* UIKit.framework */; };
+		49819DE51A9F0EBE00C6D811 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49819DE41A9F0EBE00C6D811 /* Foundation.framework */; };
+		49819DE71A9F0ECF00C6D811 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49819DE61A9F0ECF00C6D811 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,15 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		493AC89D1A918C1E00E9FFA3 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		493AC89E1A918C1E00E9FFA3 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		493F3A801A86B4DF0094DB5E /* ScoreKeeper-TableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScoreKeeper-TableView.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		493F3A841A86B4DF0094DB5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493F3A851A86B4DF0094DB5E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		493F3A871A86B4DF0094DB5E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		493F3A881A86B4DF0094DB5E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		493F3A8A1A86B4DF0094DB5E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		493F3A8B1A86B4DF0094DB5E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		493F3A8A1A86B4DF0094DB5E /* PlayersListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayersListViewController.h; sourceTree = "<group>"; };
+		493F3A8B1A86B4DF0094DB5E /* PlayersListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlayersListViewController.m; sourceTree = "<group>"; };
 		493F3A901A86B4DF0094DB5E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		493F3A931A86B4DF0094DB5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		493F3A991A86B4DF0094DB5E /* ScoreKeeper-TableViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ScoreKeeper-TableViewTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,14 +55,23 @@
 		493F3AB01A86D7660094DB5E /* PlayerListTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListTableViewDataSource.m; sourceTree = "<group>"; };
 		493F3AB21A86DB870094DB5E /* PlayerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerTableViewCell.h; sourceTree = "<group>"; };
 		493F3AB31A86DB870094DB5E /* PlayerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerTableViewCell.m; sourceTree = "<group>"; };
-		49819DBC1A9E73CA00C6D811 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
-		49819DBD1A9E73CA00C6D811 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		494BCF791A9FD62400E9667D /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		494BCF7A1A9FD62400E9667D /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		494BCF7C1A9FD62500E9667D /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		494BCF7D1A9FD62500E9667D /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
 		49819DBF1A9E749C00C6D811 /* GameController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameController.h; sourceTree = "<group>"; };
 		49819DC01A9E749C00C6D811 /* GameController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameController.m; sourceTree = "<group>"; };
 		49819DC31A9E7AAC00C6D811 /* GamesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamesListViewController.h; sourceTree = "<group>"; };
 		49819DC41A9E7AAC00C6D811 /* GamesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamesListViewController.m; sourceTree = "<group>"; };
 		49819DC91A9E7DDB00C6D811 /* GamesListTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GamesListTableViewDataSource.h; sourceTree = "<group>"; };
 		49819DCA1A9E7DDB00C6D811 /* GamesListTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GamesListTableViewDataSource.m; sourceTree = "<group>"; };
+		49819DCF1A9F06FF00C6D811 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		49819DD61A9F0AFD00C6D811 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		49819DDF1A9F0E7000C6D811 /* Stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stack.h; sourceTree = "<group>"; };
+		49819DE01A9F0E7000C6D811 /* Stack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stack.m; sourceTree = "<group>"; };
+		49819DE21A9F0EB000C6D811 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		49819DE41A9F0EBE00C6D811 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		49819DE61A9F0ECF00C6D811 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49819DE71A9F0ECF00C6D811 /* CoreGraphics.framework in Frameworks */,
+				49819DE51A9F0EBE00C6D811 /* Foundation.framework in Frameworks */,
+				49819DE31A9F0EB000C6D811 /* UIKit.framework in Frameworks */,
+				49819DD71A9F0AFD00C6D811 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +102,7 @@
 				493F3A821A86B4DF0094DB5E /* ScoreKeeper-TableView */,
 				493F3A9C1A86B4DF0094DB5E /* ScoreKeeper-TableViewTests */,
 				493F3A811A86B4DF0094DB5E /* Products */,
+				49819DD81A9F0B0C00C6D811 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +118,8 @@
 		493F3A821A86B4DF0094DB5E /* ScoreKeeper-TableView */ = {
 			isa = PBXGroup;
 			children = (
+				49819DDF1A9F0E7000C6D811 /* Stack.h */,
+				49819DE01A9F0E7000C6D811 /* Stack.m */,
 				493F3A871A86B4DF0094DB5E /* AppDelegate.h */,
 				493F3A881A86B4DF0094DB5E /* AppDelegate.m */,
 				49819DCD1A9E9C4B00C6D811 /* GamesList */,
@@ -141,12 +161,13 @@
 		49819DC21A9E797E00C6D811 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				494BCF7C1A9FD62500E9667D /* Game.h */,
+				494BCF7D1A9FD62500E9667D /* Game.m */,
+				494BCF791A9FD62400E9667D /* Player.h */,
+				494BCF7A1A9FD62400E9667D /* Player.m */,
 				49819DBF1A9E749C00C6D811 /* GameController.h */,
 				49819DC01A9E749C00C6D811 /* GameController.m */,
-				49819DBC1A9E73CA00C6D811 /* Game.h */,
-				49819DBD1A9E73CA00C6D811 /* Game.m */,
-				493AC89D1A918C1E00E9FFA3 /* Player.h */,
-				493AC89E1A918C1E00E9FFA3 /* Player.m */,
+				49819DCE1A9F06FF00C6D811 /* Model.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -154,8 +175,8 @@
 		49819DCC1A9E9C4100C6D811 /* PlayerList */ = {
 			isa = PBXGroup;
 			children = (
-				493F3A8A1A86B4DF0094DB5E /* ViewController.h */,
-				493F3A8B1A86B4DF0094DB5E /* ViewController.m */,
+				493F3A8A1A86B4DF0094DB5E /* PlayersListViewController.h */,
+				493F3A8B1A86B4DF0094DB5E /* PlayersListViewController.m */,
 				493F3AAF1A86D7660094DB5E /* PlayerListTableViewDataSource.h */,
 				493F3AB01A86D7660094DB5E /* PlayerListTableViewDataSource.m */,
 				493F3AB21A86DB870094DB5E /* PlayerTableViewCell.h */,
@@ -173,6 +194,17 @@
 				49819DCA1A9E7DDB00C6D811 /* GamesListTableViewDataSource.m */,
 			);
 			name = GamesList;
+			sourceTree = "<group>";
+		};
+		49819DD81A9F0B0C00C6D811 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				49819DE61A9F0ECF00C6D811 /* CoreGraphics.framework */,
+				49819DE41A9F0EBE00C6D811 /* Foundation.framework */,
+				49819DE21A9F0EB000C6D811 /* UIKit.framework */,
+				49819DD61A9F0AFD00C6D811 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,15 +306,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				493F3A8C1A86B4DF0094DB5E /* ViewController.m in Sources */,
+				49819DE11A9F0E7000C6D811 /* Stack.m in Sources */,
+				493F3A8C1A86B4DF0094DB5E /* PlayersListViewController.m in Sources */,
 				493F3AB11A86D7660094DB5E /* PlayerListTableViewDataSource.m in Sources */,
+				494BCF7E1A9FD62500E9667D /* Game.m in Sources */,
 				49819DC51A9E7AAC00C6D811 /* GamesListViewController.m in Sources */,
 				493F3A891A86B4DF0094DB5E /* AppDelegate.m in Sources */,
-				49819DBE1A9E73CA00C6D811 /* Game.m in Sources */,
 				493F3A861A86B4DF0094DB5E /* main.m in Sources */,
+				494BCF7B1A9FD62400E9667D /* Player.m in Sources */,
 				49819DCB1A9E7DDB00C6D811 /* GamesListTableViewDataSource.m in Sources */,
 				49819DC11A9E749C00C6D811 /* GameController.m in Sources */,
-				493AC89F1A918C1E00E9FFA3 /* Player.m in Sources */,
+				49819DD01A9F06FF00C6D811 /* Model.xcdatamodeld in Sources */,
 				493F3AB41A86DB870094DB5E /* PlayerTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -478,6 +512,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		49819DCE1A9F06FF00C6D811 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				49819DCF1A9F06FF00C6D811 /* Model.xcdatamodel */,
+			);
+			currentVersion = 49819DCF1A9F06FF00C6D811 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 493F3A781A86B4DF0094DB5E /* Project object */;
 }

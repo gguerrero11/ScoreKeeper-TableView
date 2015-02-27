@@ -2,26 +2,31 @@
 //  Game.h
 //  ScoreKeeper-TableView
 //
-//  Created by Gabriel Guerrero on 2/25/15.
+//  Created by Gabriel Guerrero on 2/26/15.
 //  Copyright (c) 2015 DevMountain. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "Player.h"
-@interface Game : NSObject
+#import <CoreData/CoreData.h>
 
+@class Player;
 
-@property (nonatomic,strong) NSMutableArray *arrayOfPlayers;
-@property (nonatomic,strong) NSString * gameName;
-@property (nonatomic) NSInteger indexOfGame;
+@interface Game : NSManagedObject
 
+@property (nonatomic, retain) NSString * gameName;
+@property (nonatomic, retain) NSOrderedSet *players;
+@end
 
+@interface Game (CoreDataGeneratedAccessors)
 
-
--(id)init;
-
-- (void)addPlayer:(Player *)player;
-- (void)removePlayer:(Player *)player;
-- (NSInteger)countOfPlayersInArray;
-
+- (void)insertObject:(Player *)value inPlayersAtIndex:(NSUInteger)idx;
+- (void)removeObjectFromPlayersAtIndex:(NSUInteger)idx;
+- (void)insertPlayers:(NSArray *)value atIndexes:(NSIndexSet *)indexes;
+- (void)removePlayersAtIndexes:(NSIndexSet *)indexes;
+- (void)replaceObjectInPlayersAtIndex:(NSUInteger)idx withObject:(Player *)value;
+- (void)replacePlayersAtIndexes:(NSIndexSet *)indexes withPlayers:(NSArray *)values;
+- (void)addPlayersObject:(Player *)value;
+- (void)removePlayersObject:(Player *)value;
+- (void)addPlayers:(NSOrderedSet *)values;
+- (void)removePlayers:(NSOrderedSet *)values;
 @end

@@ -8,15 +8,19 @@
 
 #import "GameController.h"
 
+
 @implementation GameController
 
-- (id) init {
+-(id) init {
     if (self) {
         self = [super init];
         self.gamesArray = [NSMutableArray new];
+        
     }
     return self;
 }
+
+#pragma mark Controller for Game
 
 + (GameController *) sharedInstance {
     static GameController *sharedInstance = nil;
@@ -27,21 +31,59 @@
     return sharedInstance;
 }
 
-- (void)addGame:(Game *)game {
-    [self.gamesArray addObject:game];
+-(NSArray *)gamesArray {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"Game"];
+    NSArray *objects =  [[Stack sharedInstance].managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    return objects;
 }
 
-- (void)removeGame:(Game *)game {
-    [self.gamesArray removeObject:game];
+-(Game *)addGameWithName:(NSString *)name{
+    self.currentGame = [NSEntityDescription insertNewObjectForEntityForName:@"Game"
+                                               inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    self.currentGame.gameName = name;
+    [self save];
+    return self.currentGame;
 }
 
-- (void)updatePlayerData:(Player *)passedInPlayer {
+-(void)removeGame:(Game *)game {
+    if (!game) {
+        return;
+    }
+    [game.managedObjectContext deleteObject:game];
+}
+
+#pragma mark Controller for Player
+
+-(void)addPlayerToGame {
+
+    Player *newPlayer = [NSEntityDescription insertNewObjectForEntityForName:@"Player"
+                                                      inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
+    newPlayer.name = @"";
+    newPlayer.stepperValue = 0;
+    
+    // Converts NSSet players into Mutable Array to add a new player, then converts back to NSOrderedSet
+    NSMutableArray *mutableArray = [[NSMutableArray alloc]initWithArray:[self.currentGame.players array]];
+    [mutableArray addObject:newPlayer];
+    NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:mutableArray];
+    self.currentGame.players = orderedSet;
+    
+    [self save];
+
+}
+
+-(void)removePlayerFromGame:(Player *)player {
+    if (!player) {
+        return;
+    }
+    [player.managedObjectContext deleteObject:player];
     
 }
 
-- (NSInteger)amountOfPlayersInArray {
+#pragma mark Saving method
+
+-(void)save {
+    [[Stack sharedInstance] save];
     
-    return self.currentGame.arrayOfPlayers.count;
 }
 
 

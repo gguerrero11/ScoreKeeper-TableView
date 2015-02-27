@@ -9,13 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 
-@interface ViewController : UIViewController
+@interface PlayersListViewController : UIViewController
 
+@property (nonatomic,strong) NSArray *arrayOfPlayers;
 
-
-- (void)updateCurrentGame:(Game *)gamePassedIn;
-
-
+-(void)updateCurrentGame:(Game *)gamePassedIn;
 
 @end
 

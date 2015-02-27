@@ -8,9 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "PlayersListViewController.h"
+
 
 @interface PlayerListTableViewDataSource : NSObject <UITableViewDataSource>
 
-
+- (void)registerTableView:(UITableView *)tableView;
 
 @end

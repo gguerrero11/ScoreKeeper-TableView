@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Game.h"
+#import "Stack.h"
+#import "Player.h"
 
 @interface GameController : NSObject
 
-@property (nonatomic, strong) NSMutableArray *gamesArray;
+@property (nonatomic, strong) NSArray *gamesArray;
 @property (nonatomic, strong) Game *currentGame;
 
 
@@ -20,11 +22,18 @@
 
 - (id)init;
 
-- (void)addGame:(Game *)game;
+- (Game *)addGameWithName:(NSString *)name;
+
 - (void)removeGame:(Game *)game;
-- (void)updatePlayerData:(Player *)passedInPlayer;
+
+- (void)addPlayerToGame;
+
+- (void)removePlayerFromGame:(Player *)player;
+
+//- (void)addPlayerToGameWithName:(NSString *)namePassedIn
+//                   StepperValue:(NSNumber *)stepperValuePassedIn;
+// - (void)updatePlayerData:(Player *)passedInPlayer;
 
 
-- (NSInteger)amountOfPlayersInArray;
 
 @end
