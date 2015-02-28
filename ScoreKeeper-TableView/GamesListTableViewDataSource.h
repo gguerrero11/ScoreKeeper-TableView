@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "Game.h"
 
 @interface GamesListTableViewDataSource : NSObject <UITableViewDataSource>
+
+@property (nonatomic, strong) Game *currentGame;
 
 - (void)registerTableView:(UITableView *)tableView;
 

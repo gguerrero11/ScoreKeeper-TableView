@@ -49,12 +49,20 @@
     if (!game) {
         return;
     }
+//    NSMutableArray *mutableArray = [[NSMutableArray alloc]initWithArray:[GameController sharedInstance].gamesArray];
+//    [mutableArray removeObject:game];
+//    [GameController sharedInstance].gamesArray = mutableArray;
+    
     [game.managedObjectContext deleteObject:game];
+    [self save];
+
 }
 
 #pragma mark Controller for Player
 
 -(NSArray *)playersArray {
+    
+    // NOTE: Unecessary Fetch request because its been already fetched when "Game" was fetched.
     //NSFetchRequest *playerFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"player"];
     //NSArray *playerObjects =  [self.currentGame.players];
     return [self.currentGame.players array];

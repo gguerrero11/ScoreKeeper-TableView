@@ -13,8 +13,6 @@
 
 @interface PlayerListTableViewDataSource : NSObject <UITableViewDataSource>
 
-@property (nonatomic, strong) PlayersListViewController *playerListViewController;
-
 @property (nonatomic, strong) Player *player;
 
 -(void)registerTableView:(UITableView *)tableView;

@@ -39,5 +39,20 @@ NSString *gameCellIndentifier = @"gameCell";
     return cell;
 }
 
+#pragma mark Deleting Cell method
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.currentGame = [GameController sharedInstance].playersArray[indexPath.row];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+//        [tableView beginUpdates];
+//        [[GameController sharedInstance]removeGame:self.currentGame];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [self.tableView reloadData];
+//        [tableView endUpdates];
+    }
+}
+
+
 
 @end

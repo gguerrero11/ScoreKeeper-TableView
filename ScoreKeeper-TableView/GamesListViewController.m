@@ -16,6 +16,7 @@
 
 @property (nonatomic) UITableView *gamesListTableView;
 @property (nonatomic, strong) GamesListTableViewDataSource *dataSource;
+@property (nonatomic) UIBarButtonItem *editButton;
 
 @end
 
@@ -45,13 +46,20 @@
     self.navigationItem.rightBarButtonItem = addButton;
     
     // Edit button
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTableView)];
-    self.navigationItem.rightBarButtonItem = editButton;
+    self.editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTableView)];
+    self.navigationItem.rightBarButtonItem = self.editButton;
 
 }
 
 -(void)editTableView {
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneEditTableView)];
+    self.navigationItem.rightBarButtonItem = doneButton;
     [self.gamesListTableView setEditing:YES animated:YES];
+}
+
+-(void)doneEditTableView {
+    [self.gamesListTableView setEditing:NO animated:YES];
+    self.navigationItem.rightBarButtonItem = self.editButton;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
