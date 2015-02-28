@@ -8,7 +8,7 @@
 
 #import "PlayerTableViewCell.h"
 #import "Player.h"
-
+#import "GameController.h"
 
 @implementation PlayerTableViewCell
 
@@ -42,7 +42,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     self.playerAtCell.name = textField.text;
-            NSLog(@"%@", self.playerAtCell);
+        [[GameController sharedInstance] save];
 }
 
 - (void)scoreStepperChanged:(id)sender {
@@ -50,6 +50,7 @@
     NSNumber *stepperValue = [NSNumber numberWithInteger:stepper.value];
     self.scoreLabel.text = [NSString stringWithFormat:@"%@", stepperValue];
     self.playerAtCell.stepperValue = stepperValue;
+    [[GameController sharedInstance] save];
 }
 
 
@@ -58,8 +59,6 @@
     return TRUE;
 }
 
-- (void)awakeFromNib {
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

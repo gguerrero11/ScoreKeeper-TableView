@@ -54,21 +54,23 @@
 
 #pragma mark Controller for Player
 
--(void)addPlayerToGame {
+- (Player *)addPlayerWithName{
 
     Player *newPlayer = [NSEntityDescription insertNewObjectForEntityForName:@"Player"
                                                       inManagedObjectContext:[Stack sharedInstance].managedObjectContext];
-    newPlayer.name = @"";
+    // Initial score
     newPlayer.stepperValue = 0;
     
     // Converts NSSet players into Mutable Array to add a new player, then converts back to NSOrderedSet
     NSMutableArray *mutableArray = [[NSMutableArray alloc]initWithArray:[self.currentGame.players array]];
     [mutableArray addObject:newPlayer];
+    
     NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:mutableArray];
     self.currentGame.players = orderedSet;
     
+    self.playersArray = mutableArray;
     [self save];
-
+    return newPlayer;
 }
 
 -(void)removePlayerFromGame:(Player *)player {
@@ -82,6 +84,7 @@
 #pragma mark Saving method
 
 -(void)save {
+
     [[Stack sharedInstance] save];
     
 }

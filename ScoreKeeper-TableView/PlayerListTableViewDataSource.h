@@ -13,6 +13,14 @@
 
 @interface PlayerListTableViewDataSource : NSObject <UITableViewDataSource>
 
-- (void)registerTableView:(UITableView *)tableView;
+@property (nonatomic, strong) PlayersListViewController *playerListViewController;
+
+@property (nonatomic) NSInteger countForRows;
+
+-(void)registerTableView:(UITableView *)tableView;
+
+
+
+
 
 @end

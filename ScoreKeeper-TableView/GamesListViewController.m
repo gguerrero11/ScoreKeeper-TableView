@@ -46,12 +46,23 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    PlayersListViewController *playerListViewController = [PlayersListViewController new];
+    Game *gameSelected = [GameController sharedInstance].gamesArray[indexPath.row];
+    [GameController sharedInstance].currentGame = gameSelected;
+    [GameController sharedInstance].playersArray = [gameSelected.players array];
+    [playerListViewController updateCurrentGame:gameSelected];
+    [self.navigationController pushViewController:playerListViewController animated:YES];
+}
+
+#pragma mark Game add button with textField saving
+
 - (void) add:(id)sender {
     UIAlertView *nameAlert = [[UIAlertView alloc]initWithTitle:@"Enter Game Name" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     nameAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [nameAlert textFieldAtIndex:0].delegate = self;
     [nameAlert show];
-    
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
@@ -63,15 +74,6 @@
     }
     [[GameController sharedInstance] addGameWithName:nameOfGame];
     [self.gamesListTableView reloadData];
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    PlayersListViewController *playerListViewController = [PlayersListViewController new];
-    Game *gameSelected = [GameController sharedInstance].gamesArray[indexPath.row];
-    [GameController sharedInstance].currentGame = gameSelected;
-    [playerListViewController updateCurrentGame:gameSelected];
-    [self.navigationController pushViewController:playerListViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

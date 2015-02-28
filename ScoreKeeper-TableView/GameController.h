@@ -13,6 +13,7 @@
 
 @interface GameController : NSObject
 
+@property (nonatomic, strong) NSArray *playersArray;
 @property (nonatomic, strong) NSArray *gamesArray;
 @property (nonatomic, strong) Game *currentGame;
 
@@ -26,9 +27,11 @@
 
 - (void)removeGame:(Game *)game;
 
-- (void)addPlayerToGame;
+- (Player *)addPlayerWithName;
 
 - (void)removePlayerFromGame:(Player *)player;
+
+-(void)save;
 
 //- (void)addPlayerToGameWithName:(NSString *)namePassedIn
 //                   StepperValue:(NSNumber *)stepperValuePassedIn;

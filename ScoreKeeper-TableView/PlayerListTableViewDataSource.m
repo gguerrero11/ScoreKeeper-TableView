@@ -14,9 +14,9 @@
 
 @interface PlayerListTableViewDataSource ()
 
-@property (nonatomic,strong) Game *game;
-@property (nonatomic, strong) Player *player;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) Player *player;
+
 
 @end
 
@@ -25,42 +25,39 @@
 NSString *cellIdentifier = @"cell";
 
 - (void)registerTableView:(UITableView *)tableView {
-    self.tableView = tableView;
+    [tableView registerClass:[PlayerTableViewCell class] forCellReuseIdentifier:cellIdentifier];
+}
+
+#pragma mark required protocols
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [GameController sharedInstance].currentGame.players.count;
     
 }
-
-// Required Protocols
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.game.players.count;
-}
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlayerTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[PlayerTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
-    PlayersListViewController *playersListViewController = [PlayersListViewController new];
-    cell.playerAtCell = playersListViewController.arrayOfPlayers[indexPath.row];
+//    NSArray *gamesArray = [GameController sharedInstance].gamesArray[indexPath.row];
+
+    NSLog(@"INDEX %ld",(long)indexPath.row);
     cell.nameTextField.text = cell.playerAtCell.name;
-    cell.scoreLabel.text = [NSString stringWithFormat:@"%ld", (long)cell.playerAtCell.stepperValue];
+    cell.scoreLabel.text = [NSString stringWithFormat:@"%ld", (long)[cell.playerAtCell.stepperValue integerValue]];
     cell.cellStepper.value = [cell.playerAtCell.stepperValue integerValue];
     return cell;
 }
+
+#pragma mark Deleting Cell method
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[GameController sharedInstance]removePlayerFromGame:self.player];
-        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-        
-//        [self.tableView reloadData];
-        
+        [self.tableView reloadData];
     }
-    
-    
 }
 
 @end

@@ -11,8 +11,8 @@
 
 @interface PlayersListViewController : UIViewController
 
-@property (nonatomic,strong) NSArray *arrayOfPlayers;
 
+//@property (nonatomic,strong) NSArray *arrayOfPlayers;
 -(void)updateCurrentGame:(Game *)gamePassedIn;
 
 @end
