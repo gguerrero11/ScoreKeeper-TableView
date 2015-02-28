@@ -17,6 +17,7 @@
 @property (nonatomic, strong) Game *currentGame;
 @property (nonatomic) UITableView *playersListTableView;
 @property (nonatomic) UIView *addPlayerView;
+@property (nonatomic) UIBarButtonItem *editButton;
 
 
 @end
@@ -59,8 +60,8 @@
     [addPlayerButton addTarget:self action:@selector(addPlayerPressed) forControlEvents:UIControlEventTouchDown];
     [addPlayerButton setBackgroundColor:[UIColor colorWithRed:100/255 green:120/255 blue:255/255 alpha:1.0]];
     
-    UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTableView)];
-    self.navigationItem.rightBarButtonItem = editButton;
+    self.editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTableView)];
+    self.navigationItem.rightBarButtonItem = self.editButton;
     self.playersListTableView.allowsSelection = NO;
     
     // creating a dataSource for PlayerListTableViewDataSource and assigning it to class's datasource
@@ -71,7 +72,14 @@
 }
 
 -(void)editTableView {
+    UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(doneEditTableView)];
+    self.navigationItem.rightBarButtonItem = doneButton;
     [self.playersListTableView setEditing:YES animated:YES];
+}
+
+-(void)doneEditTableView {
+    [self.playersListTableView setEditing:NO animated:YES];
+        self.navigationItem.rightBarButtonItem = self.editButton;
 }
 
 // this always has to be in the same class as where UITableViewDelegate is or the "<UITableViewDelegate>" code

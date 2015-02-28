@@ -44,6 +44,14 @@
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(add:)];
     self.navigationItem.rightBarButtonItem = addButton;
     
+    // Edit button
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTableView)];
+    self.navigationItem.rightBarButtonItem = editButton;
+
+}
+
+-(void)editTableView {
+    [self.gamesListTableView setEditing:YES animated:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,6 +83,8 @@
     [[GameController sharedInstance] addGameWithName:nameOfGame];
     [self.gamesListTableView reloadData];
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
