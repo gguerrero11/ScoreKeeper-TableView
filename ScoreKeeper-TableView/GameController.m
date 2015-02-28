@@ -67,7 +67,7 @@
     
     NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:mutableArray];
     self.currentGame.players = orderedSet;
-    
+
     self.playersArray = mutableArray;
     [self save];
     return newPlayer;

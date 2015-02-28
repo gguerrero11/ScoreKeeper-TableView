@@ -40,8 +40,8 @@ NSString *cellIdentifier = @"cell";
     if (cell == nil) {
         cell = [[PlayerTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-//    NSArray *gamesArray = [GameController sharedInstance].gamesArray[indexPath.row];
 
+    cell.playerAtCell = [GameController sharedInstance].playersArray[indexPath.row];
     NSLog(@"INDEX %ld",(long)indexPath.row);
     cell.nameTextField.text = cell.playerAtCell.name;
     cell.scoreLabel.text = [NSString stringWithFormat:@"%ld", (long)[cell.playerAtCell.stepperValue integerValue]];
