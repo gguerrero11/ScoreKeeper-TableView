@@ -54,6 +54,12 @@
 
 #pragma mark Controller for Player
 
+-(NSArray *)playersArray {
+    //NSFetchRequest *playerFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"player"];
+    //NSArray *playerObjects =  [self.currentGame.players];
+    return [self.currentGame.players mutableCopy];
+}
+
 - (Player *)addPlayerWithName{
 
     Player *newPlayer = [NSEntityDescription insertNewObjectForEntityForName:@"Player"
@@ -67,7 +73,6 @@
     
     NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:mutableArray];
     self.currentGame.players = orderedSet;
-
     self.playersArray = mutableArray;
     [self save];
     return newPlayer;
@@ -78,6 +83,7 @@
         return;
     }
     [player.managedObjectContext deleteObject:player];
+
     
 }
 

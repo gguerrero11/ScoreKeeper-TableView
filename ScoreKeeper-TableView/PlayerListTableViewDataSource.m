@@ -15,7 +15,7 @@
 @interface PlayerListTableViewDataSource ()
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) Player *player;
+
 
 
 @end
@@ -52,9 +52,12 @@ NSString *cellIdentifier = @"cell";
 #pragma mark Deleting Cell method
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    self.player = [GameController sharedInstance].playersArray[indexPath.row];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+
+        [tableView beginUpdates];
         [[GameController sharedInstance]removePlayerFromGame:self.player];
+        [tableView endUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadData];
     }

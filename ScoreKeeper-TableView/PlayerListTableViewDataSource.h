@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong) PlayersListViewController *playerListViewController;
 
-@property (nonatomic) NSInteger countForRows;
+@property (nonatomic, strong) Player *player;
 
 -(void)registerTableView:(UITableView *)tableView;
 

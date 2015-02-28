@@ -26,6 +26,7 @@
 
 - (void)updateCurrentGame:(Game *)gamePassedIn {
     self.currentGame = gamePassedIn;
+
 }
 
 - (void)viewDidLoad {
@@ -33,7 +34,6 @@
     self.title = self.currentGame.gameName;  // title comes first
     float addPlayerViewHeight = 70;
     self.view.backgroundColor = [UIColor whiteColor];
-    self.dataSource.countForRows = [GameController sharedInstance].currentGame.players.count;
     NSLog(@"Array of Players %lu", (unsigned long)self.dataSource);
     
     [self.playersListTableView reloadData];
@@ -106,7 +106,6 @@
     //NSLog(@"self.arrayOfPlayers PlayersListViewController: %lu",(unsigned long)self.dataSource.arrayForCount.count);
     
     
-    NSLog(@"self.countForRow PlayersListViewController: %lu",(unsigned long)self.dataSource.countForRows);
     [[GameController sharedInstance] addPlayerWithName];
     [self.playersListTableView reloadData];
 }
