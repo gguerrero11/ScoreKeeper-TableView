@@ -57,7 +57,7 @@
 -(NSArray *)playersArray {
     //NSFetchRequest *playerFetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"player"];
     //NSArray *playerObjects =  [self.currentGame.players];
-    return [self.currentGame.players mutableCopy];
+    return [self.currentGame.players array];
 }
 
 - (Player *)addPlayerWithName{
@@ -73,7 +73,6 @@
     
     NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:mutableArray];
     self.currentGame.players = orderedSet;
-    self.playersArray = mutableArray;
     [self save];
     return newPlayer;
 }
@@ -82,7 +81,13 @@
     if (!player) {
         return;
     }
-    [player.managedObjectContext deleteObject:player];
+    
+    NSMutableArray *mutableArray = [[NSMutableArray alloc]initWithArray:[self.currentGame.players array]];
+    [mutableArray removeObject:player];
+    
+    NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:mutableArray];
+    self.currentGame.players = orderedSet;
+    [self save];
 
     
 }

@@ -57,9 +57,9 @@ NSString *cellIdentifier = @"cell";
 
         [tableView beginUpdates];
         [[GameController sharedInstance]removePlayerFromGame:self.player];
-        [tableView endUpdates];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView reloadData];
+        [tableView endUpdates];
     }
 }
 
